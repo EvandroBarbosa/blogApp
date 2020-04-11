@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">ProgramadoresDoAmanha</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/postagens">Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/categorias">Cateorias</a>
+            </li>
+           {{#if user}}
+                 <li class="nav-item">
+                  <a class="nav-link" href="/usuarios/logout">Sair</a>
+                </li>
+           {{/if}}
+            {{!-- <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categorias
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {{#each categorias}}
+                    <a class="dropdown-item" href="#">{{nome}}</a>
+                {{/each}}
+               
+                </div>
+            </div> --}}
+        </ul>
+    </div>
+</nav>

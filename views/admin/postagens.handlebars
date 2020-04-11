@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Lista de postagens</h1>
+  <hr>
+
+  {{#each postagens}}
+  <div class="card mt-2">
+    <div class="card-body">
+      <h4 class="card-title">{{titulo}}</h4>
+      <small>{{categoria.nome}}</small>
+      <p>{{descricao}}</p>
+      <p class="card-text">{{conteudo}}</p>
+      {{#if user}}
+        <div class="row mt-2">
+          <a href="/postagens/edit/{{_id}}">
+            <button class="btn btn-success">Editar</button>
+          </a>
+
+          <a href="/postagens/deletar/{{_id}}">
+            <button type="submit" class="btn btn-danger ml-2">Deletar</button>
+          </a>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+  {{else}}
+  {{/each}}
+
+  <!--Nova postagem-->
+  
+  {{#if user}}
+    <a href="/postagens/add">
+      <button class="btn btn-success mt-2">Nova Postagem</button>
+    </a>
+  {{/if}}
+  
+</div>

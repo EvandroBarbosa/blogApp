@@ -1,0 +1,32 @@
+<div class="container">
+    {{#each erro}}
+        <div class="alert alert-danger">{{texto}}</div>
+    {{else}}
+    {{/each}}
+    <h1>Criar conta de usuário</h1>
+    <div class="card">
+        <div class="card-body">
+            <form action="/usuarios/registro" method="post">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <input type="password" name="confirmarSenha" class="form-control" />
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-success">Criar conta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

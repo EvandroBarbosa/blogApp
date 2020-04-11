@@ -1,0 +1,63 @@
+<div class="container">
+
+    {{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+    {{/each}}
+
+    {{#if postagem._id}}
+    <h1>Editar Postagem</h1>
+    {{else}}
+    <h1>Nova Postagem</h1>
+    {{/if}}
+
+    <div class="card">
+        <div class="card-body">
+            <form action="{{#if postagem._id}}/postagens/edit/{{id}}{{else}}/postagens/nova{{/if}}" method="post">
+                <input type="hidden" name="id" value="{{postagem._id}}">
+                <div class="form-group">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo da postagem"
+                        value="{{postagem.titulo}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="slug">Slug</label>
+                    <input type="text" class="form-control" name="slug" id="slug" placeholder="Slug da postagem"
+                        value="{{postagem.slug}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" class="form-control" name="descricao" id="descricao"
+                        placeholder="Uma breve descrição da postagem" value="{{postagem.descricao}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="conteudo">Conteúdo</label>
+                    <textarea class="form-control" name="conteudo" id="conteudo" rows="5"
+                        placeholder="Descreva aqui o conteúdo da postagem..." required>{{postagem.conteudo}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Categorias</label>
+
+                    <select name="categoria" class="form-control" required>
+
+                        {{#if postagem.categoria._id}}
+                        <option value="{{postagem.categoria._id}}">{{categoria.nome}}</option>
+                        {{else}}
+                        <option value="0">Selecione uma categoria</option>
+                        {{#each categoria}}
+                        <option value="{{_id}}">{{nome}}</option>
+                        {{/each}}
+                        {{/if}}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    {{#if postagem._id}}
+                    <button type="submit" class="btn btn-success">Atualizar</button>
+                    {{else}}
+                    <button type="submit" class="btn btn-success">Publicar</button>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

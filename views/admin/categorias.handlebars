@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Lista de categorias</h2>
+    <hr>
+
+    {{#each categorias}}
+    <div class="card mt-2">
+        <div class="card-body">
+            <h3>{{nome}}</h3>
+            <small>Slug: {{slug}}</small><br>
+            
+            {{#if user}}
+                <div class="row mt-2">
+                    <a href="/categorias/edit/{{_id}}">
+                        <button class="btn btn-success">Editar</button>
+                    </a>
+                    <form action="/categorias/delete" method="post">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <button type="submit" class="btn btn-danger ml-2">Deletar</button>
+                    </form>
+                 </div>
+            {{/if}}
+        </div>
+    </div>
+    {{else}}
+
+    <div class="row">
+        <h4>Nenhuma Categoria registrada no momento :(</h4>
+    </div>
+    {{/each}}
+
+   {{#if user}}
+        <a href="/categorias/add">
+             <button class="btn btn-success mt-3 mb-4">Nova categoria</button>
+        </a>
+    {{/if}}
+</div>

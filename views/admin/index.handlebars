@@ -1,0 +1,31 @@
+<div class="jumbotron">
+    <h1 class="display-3">Progamadores Do Amanha</h1>
+    <p class="lead">Os programadores do amanha vem com intuito de trazer conteúdo que enriquesse o conhecimento dos
+        novos programadores</p>
+    <hr class="my-2">
+    <p>Mais informações</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Deixe nos seu e-mail</a>
+    </p>
+</div>
+   
+<div class="row ml-5 mt-0">
+    <div class="col-sm-9">
+        <div class="container">
+            <h1>Postagens recentes</h1>
+
+            {{#each postagens}}
+            <a href="/postagem/{{slug}}" style="text-decoration: none; color: black;">
+                <div class="card border-primary mt-2">
+                    <div class="card-body">
+                        <h4 class="card-title">{{titulo}}</h4>
+                        <p class="card-text">{{descricao}}</p>
+                    </div>
+                </div>
+            </a>
+            {{else}}
+            {{/each}}
+
+        </div>
+    </div>
+</div>
